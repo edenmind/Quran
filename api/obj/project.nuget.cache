@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "KJQAx6OO66MNLbnCqSFr7SzvaWXvKdrtAD2JVtBejDZdqLFD/sH43iz2W+PN3hiv52hw8H2WtS+NV2XtxlMkHg==",
+  "dgSpecHash": "7eyTQ7PPgzDUpGMkYpfUsrtThbsEcnd/Ey6N0yAsvzU4C4kQfJ85fKCGREcQJ2X7UaweVnXOMj+uY4cPUo86DQ==",
   "success": true,
   "projectFilePath": "/Users/jonas/Documents/GitHub/Quran/api/api.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/jonas/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/jonas/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/jonas/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "/Users/jonas/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "/Users/jonas/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "/Users/jonas/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
   "logs": []
 }
