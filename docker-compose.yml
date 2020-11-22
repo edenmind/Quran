@@ -20,14 +20,11 @@ services:
     restart: always
 
   db:
-    image: postgres
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
     restart: always
-    ports:
-      - 5432:5432
     environment:
-      POSTGRES_PASSWORD: notsosecret
-      POSTGRES_USER: root
-      POSTGRES_DB: quran
+      MYSQL_ROOT_PASSWORD: unsecure
 
   adminer:
     image: adminer
