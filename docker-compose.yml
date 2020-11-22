@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 5000:80
+    restart: always
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 80:80
+    restart: always
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: notsosecret
+      POSTGRES_USER: root
+      POSTGRES_DB: quran
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

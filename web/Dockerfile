@@ -1,8 +1,12 @@
-FROM node
-ENV NODE_ENV=production
+### STAGE 1: Build ###
+FROM node:latest AS build
 WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
+COPY package.json package-lock.json ./
+RUN npm install
 COPY . .
-EXPOSE 3000
-CMD ["npm", "start"]
+RUN npm run deploy
+
+### STAGE 2: Run ###
+FROM nginx:latest
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /usr/src/app/dist/web /usr/share/nginx/html

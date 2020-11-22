@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using api.Models;
+using System;
 
 namespace api
 {
@@ -18,6 +21,10 @@ namespace api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            var connectionString = Environment.GetEnvironmentVariable("ASPNETCORE_CONNECTION_STRING");
+
+            services.AddDbContext<Context>(opt => opt.UseNpgsql(connectionString));
             services.AddControllers();
             services.AddSwaggerGen();
         }
