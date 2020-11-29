@@ -5,3 +5,4 @@ web/src/environments/environment.prod.ts
 api/Properties/launchSettings.json
 api/Properties/launchSettings.json
 *.cache
+.vscode/launch.json

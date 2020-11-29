@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jonas/Documents/GitHub/Quran/api/api.csproj": {}
+    "C:\\Users\\admin\\Documents\\GitHub\\Quran\\api\\api.csproj": {}
   },
   "projects": {
-    "/Users/jonas/Documents/GitHub/Quran/api/api.csproj": {
+    "C:\\Users\\admin\\Documents\\GitHub\\Quran\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jonas/Documents/GitHub/Quran/api/api.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Documents\\GitHub\\Quran\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "/Users/jonas/Documents/GitHub/Quran/api/api.csproj",
-        "packagesPath": "/Users/jonas/.nuget/packages/",
-        "outputPath": "/Users/jonas/Documents/GitHub/Quran/api/obj/",
+        "projectPath": "C:\\Users\\admin\\Documents\\GitHub\\Quran\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\admin\\Documents\\GitHub\\Quran\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/jonas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,13 +57,13 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.0, )"
             },
-            "MySql.Data.EntityFramework": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.22, )"
+              "version": "[5.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -90,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

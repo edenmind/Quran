@@ -1,30 +1,31 @@
 version: "3.8"
 
 services:
-  api:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-    ports:
-      - 5000:80
-    restart: always
+  # api:
+  #   build:
+  #     context: ./api
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 5000:80
+  #   restart: always
 
-  web:
-    build:
-      context: ./web
-      dockerfile: Dockerfile
-    environment:
-      NODE_ENV: production
-    ports:
-      - 80:80
-    restart: always
+  # web:
+  #   build:
+  #     context: ./web
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     NODE_ENV: production
+  #   ports:
+  #     - 80:80
+  #   restart: always
 
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
+    image: mcr.microsoft.com/mssql/server
     environment:
-      MYSQL_ROOT_PASSWORD: unsecure
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: unsecure!12345
+    ports:
+      - 1433:1433
 
   adminer:
     image: adminer
