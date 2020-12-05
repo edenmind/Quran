@@ -12,11 +12,11 @@ import { SurahService } from './surah.service';
 export class SurahComponent implements OnInit {
   surahId!: string;
   surah!: Surah;
+  private subscription: Subscription = new Subscription();
 
   constructor(
     private actRoute: ActivatedRoute,
-    private surahService: SurahService,
-    private subscription: Subscription
+    private surahService: SurahService
   ) {}
 
   ngOnInit(): void {

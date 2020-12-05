@@ -28,7 +28,10 @@ namespace api.Controllers {
         // GET: api/Surah/5
         [HttpGet ("{id}")]
         public async Task<ActionResult<Surah>> GetSurah (int id) {
-            var surah = await _context.Surah.FindAsync (id);
+            var surah = await _context.Surah
+                .Where (i => i.SurahId.Equals (id))
+                .Include (a => a.Ayah)
+                .FirstAsync ();
 
             if (surah == null) {
                 return NotFound ();

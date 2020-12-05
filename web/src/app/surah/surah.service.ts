@@ -9,7 +9,7 @@ import { Surah } from '../models/surah';
 export class SurahService {
   constructor(private http: HttpClient) {}
 
-  private surahUrl = '/api/surah';
+  private surahUrl = 'https://localhost:5001/api/surah';
 
   getSurahs(): Observable<Surah[]> {
     return this.http.get<Surah[]>(this.surahUrl);

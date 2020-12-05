@@ -16,16 +16,25 @@ namespace api {
         }
 
         public IConfiguration Configuration { get; }
+        private static readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices (IServiceCollection services) {
 
             var connectionString = Environment.GetEnvironmentVariable ("ASPNETCORE_CONNECTION_STRING");
+            var origins = Environment.GetEnvironmentVariable ("ASPNETCORE_ORIGINS");
 
             services.AddDbContext<Context> (options =>
                 options.UseSqlServer (connectionString));
 
             services.AddControllers ();
+            services.AddCors (options => {
+                options.AddPolicy (name: MyAllowSpecificOrigins, builder => {
+                    builder.WithOrigins (origins);
+                    builder.AllowAnyMethod ();
+                    builder.AllowAnyHeader ();
+                });
+            });
             services.AddSwaggerGen ();
         }
 
@@ -45,6 +54,8 @@ namespace api {
             });
 
             app.UseRouting ();
+
+            app.UseCors (MyAllowSpecificOrigins);
 
             app.UseAuthorization ();
 

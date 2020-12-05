@@ -3,5 +3,5 @@ import { Ayah } from './ayah';
 export interface Surah {
   surahId: number;
   name: string;
-  ayahs: Ayah[];
+  ayah: Ayah[];
 }

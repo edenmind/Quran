@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { TafsirComponent } from './tafsir/tafsir.component';
 import { AyahComponent } from './ayah/ayah.component';
 import { SurahComponent } from './surah/surah.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { SurahComponent } from './surah/surah.component';
     AyahComponent,
     SurahComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

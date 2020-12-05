@@ -1,1 +1,5 @@
-<p>Surah: {{surahId}}</p>
+<p>Surah: {{surah.surahId}}</p>
+
+<div *ngFor="let ayah of surah.ayah">
+    {{ayah.ayahId}} {{ayah.arabic}} {{ayah.swedish}}
+</div>
