@@ -1,0 +1,12 @@
+<div class="grid-container-text">
+    <div class="center">
+        <h1 class="title">Surah: {{surah.surahId}} </h1>
+
+        <div *ngFor="let ayah of surah.ayah">
+            <app-ayah [ayah]="ayah">
+
+            </app-ayah>
+
+        </div>
+    </div>
+</div>

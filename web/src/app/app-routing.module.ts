@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AyahComponent } from './ayah/ayah.component';
+import { AyahComponent } from './ayah/view/ayah.component';
 import { HomeComponent } from './home/home.component';
-import { SurahComponent } from './surah/surah.component';
-import { TafsirComponent } from './tafsir/tafsir.component';
+import { SurahComponent } from './surah/view/surah.component';
+import { TafsirComponent } from './tafsir/view/tafsir.component';
 
 const routes: Routes = [
   { path: 'surah/:surahId', component: SurahComponent },

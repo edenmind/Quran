@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Surah } from '../models/surah';
-import { SurahService } from './surah.service';
+import { Surah } from '../../models/surah';
+import { SurahService } from '../surah.service';
 
 @Component({
   selector: 'app-surah',
   templateUrl: './surah.component.html',
   styleUrls: ['./surah.component.css'],
 })
-export class SurahComponent implements OnInit {
+export class SurahComponent implements OnInit, OnDestroy {
   surahId!: string;
   surah!: Surah;
   private subscription: Subscription = new Subscription();
@@ -24,5 +24,10 @@ export class SurahComponent implements OnInit {
     this.subscription = this.surahService
       .getSurah(this.surahId)
       .subscribe((surah) => (this.surah = surah));
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    console.log('destroys');
   }
 }
