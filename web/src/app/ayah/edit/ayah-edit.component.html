@@ -1,0 +1,16 @@
+<div class="example-container" *ngIf="ayah">
+    <form>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Textarea</mat-label>
+                <textarea matInput rows="5" cols="100" [(ngModel)]="ayah.swedish"
+                    name="swedish">{{ayah.swedish}}</textarea>
+            </mat-form-field>
+        </div>
+    </form>
+    <div>
+        <button mat-raised-button color="primary" matRipple type="submit" (click)="updateAyah()">
+            Update
+        </button>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TafsirComponent } from './tafsir/view/tafsir.component';
@@ -20,6 +20,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AyahEditComponent } from './ayah/edit/ayah-edit.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -29,9 +33,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     SurahComponent,
     NavigationComponent,
     HomeComponent,
+    AyahEditComponent,
   ],
   imports: [
     BrowserModule,
+    MatSnackBarModule,
+    MatInputModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -39,12 +46,14 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCardModule,
     MatMenuModule,
     MatDialogModule,
+    MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

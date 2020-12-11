@@ -11,13 +11,21 @@ import { MatDialog } from '@angular/material/dialog';
 export class AyahComponent implements OnInit {
   @Input()
   ayah!: Ayah;
+  swedishTextWithReferences!: string;
   constructor(private ayahService: AyahService, public dialog: MatDialog) {}
 
   openDialog() {
     this.dialog.open(TafsirDialog);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.ayah.swedish = this.parseReferences(this.ayah.swedish);
+  }
+
+  public parseReferences(textToParse: string): string {
+    var test = 'test';
+    return test;
+  }
 }
 
 @Component({
