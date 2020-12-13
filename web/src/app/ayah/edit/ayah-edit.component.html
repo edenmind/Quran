@@ -1,16 +1,31 @@
 <div class="example-container" *ngIf="ayah">
-    <form>
-        <div>
-            <mat-form-field appearance="fill">
-                <mat-label>Textarea</mat-label>
-                <textarea matInput rows="5" cols="100" [(ngModel)]="ayah.swedish"
-                    name="swedish">{{ayah.swedish}}</textarea>
-            </mat-form-field>
-        </div>
-    </form>
-    <div>
-        <button mat-raised-button color="primary" matRipple type="submit" (click)="updateAyah()">
-            Update
-        </button>
-    </div>
+
+    <mat-tab-group>
+        <mat-tab label="Edit Ayah">
+            <form>
+                <div>
+                    <mat-form-field appearance="fill" class="ayah">
+                        <mat-label>Edit Ayah</mat-label>
+                        <textarea matInput rows="15" cols="100" [(ngModel)]="ayah.swedish"
+                            name="swedish">{{ayah.swedish}}</textarea>
+                    </mat-form-field>
+                </div>
+            </form>
+            <div>
+                <button mat-raised-button color="primary" matRipple type="submit" (click)="updateAyah()">
+                    Update
+                </button>
+            </div>
+        </mat-tab>
+        <mat-tab label="Add Tafsir">
+            <app-add-tafsir [ayahId]="ayah.ayahId"></app-add-tafsir>
+        </mat-tab>
+
+        <mat-tab label="View Tafsir">
+            <app-tafsir [tafsirs]="ayah.tafsir"></app-tafsir>
+        </mat-tab>
+    </mat-tab-group>
+
+
+
 </div>

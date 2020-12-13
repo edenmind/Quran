@@ -1,14 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 import { Ayah } from '../models/ayah';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AyahService {
-  private ayahUrl = 'https://localhost:5001/api/ayah';
+  private ayahUrl = environment.api + 'ayah';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

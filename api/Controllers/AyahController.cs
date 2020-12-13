@@ -29,7 +29,10 @@ namespace api.Controllers {
         // GET: api/Ayah/5
         [HttpGet ("{id}")]
         public async Task<ActionResult<Ayah>> GetAyah (int id) {
-            var ayah = await _context.Ayah.FindAsync (id);
+            var ayah = await _context.Ayah
+                .Where (i => i.AyahId.Equals (id))
+                .Include (t => t.Tafsir)
+                .FirstAsync ();
 
             if (ayah == null) {
                 return NotFound ();

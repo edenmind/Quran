@@ -24,6 +24,8 @@ import { AyahEditComponent } from './ayah/edit/ayah-edit.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { AddTafsirComponent } from './tafsir/add-tafsir/add-tafsir.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +36,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NavigationComponent,
     HomeComponent,
     AyahEditComponent,
+    AddTafsirComponent,
   ],
   imports: [
     BrowserModule,
     MatSnackBarModule,
     MatInputModule,
+    MatTabsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,

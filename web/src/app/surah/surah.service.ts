@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Surah } from '../models/surah';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Surah } from '../models/surah';
 export class SurahService {
   constructor(private http: HttpClient) {}
 
-  private surahUrl = 'https://localhost:5001/api/surah';
+  private surahUrl = environment.api + 'surah';
 
   getSurahs(): Observable<Surah[]> {
     return this.http.get<Surah[]>(this.surahUrl);

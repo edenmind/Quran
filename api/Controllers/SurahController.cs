@@ -31,6 +31,7 @@ namespace api.Controllers {
             var surah = await _context.Surah
                 .Where (i => i.SurahId.Equals (id))
                 .Include (a => a.Ayah)
+                .ThenInclude (t => t.Tafsir)
                 .FirstAsync ();
 
             if (surah == null) {
