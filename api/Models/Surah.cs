@@ -1,13 +1,20 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace api.Models {
-    public class Surah {
+    public partial class Surah {
+        public Surah () {
+            Ayahs = new HashSet<Ayah> ();
+        }
+
         public int SurahId { get; set; }
         public string Name { get; set; }
+        public int? Order { get; set; }
+        public int? Count { get; set; }
+        public int? Period { get; set; }
 
-        public List<Ayah> Ayah { get; set; }
-
+        [JsonIgnore]
+        public virtual ICollection<Ayah> Ayahs { get; set; }
     }
 }

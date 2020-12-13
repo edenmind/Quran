@@ -23,7 +23,7 @@ services:
     image: mcr.microsoft.com/mssql/server
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: unsecure!12345
+      SA_PASSWORD: unsecure.12345
     ports:
       - 1433:1433
 

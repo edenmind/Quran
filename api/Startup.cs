@@ -24,7 +24,7 @@ namespace api {
             var connectionString = Environment.GetEnvironmentVariable ("ASPNETCORE_CONNECTION_STRING");
             var origins = Environment.GetEnvironmentVariable ("ASPNETCORE_ORIGINS");
 
-            services.AddDbContext<Context> (options =>
+            services.AddDbContext<KoranensBudskapContext> (options =>
                 options.UseSqlServer (connectionString));
 
             services.AddControllers ();

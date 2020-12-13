@@ -13,25 +13,25 @@ namespace api.Controllers {
     [Route ("api/[controller]")]
     [ApiController]
     public class SurahController : ControllerBase {
-        private readonly Context _context;
+        private readonly KoranensBudskapContext _context;
 
-        public SurahController (Context context) {
+        public SurahController (KoranensBudskapContext context) {
             _context = context;
         }
 
         // GET: api/Surah
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Surah>>> GetSurah () {
-            return await _context.Surah.ToListAsync ();
+            return await _context.Surahs.ToListAsync ();
         }
 
         // GET: api/Surah/5
         [HttpGet ("{id}")]
         public async Task<ActionResult<Surah>> GetSurah (int id) {
-            var surah = await _context.Surah
+            var surah = await _context.Surahs
                 .Where (i => i.SurahId.Equals (id))
-                .Include (a => a.Ayah)
-                .ThenInclude (t => t.Tafsir)
+                .Include (a => a.Ayahs)
+                .ThenInclude (t => t.Tafsirs)
                 .FirstAsync ();
 
             if (surah == null) {
@@ -70,7 +70,7 @@ namespace api.Controllers {
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Surah>> PostSurah (Surah surah) {
-            _context.Surah.Add (surah);
+            _context.Surahs.Add (surah);
             await _context.SaveChangesAsync ();
 
             return CreatedAtAction ("GetSurah", new { id = surah.SurahId }, surah);
@@ -79,19 +79,19 @@ namespace api.Controllers {
         // DELETE: api/Surah/5
         [HttpDelete ("{id}")]
         public async Task<IActionResult> DeleteSurah (int id) {
-            var surah = await _context.Surah.FindAsync (id);
+            var surah = await _context.Surahs.FindAsync (id);
             if (surah == null) {
                 return NotFound ();
             }
 
-            _context.Surah.Remove (surah);
+            _context.Surahs.Remove (surah);
             await _context.SaveChangesAsync ();
 
             return NoContent ();
         }
 
         private bool SurahExists (int id) {
-            return _context.Surah.Any (e => e.SurahId == id);
+            return _context.Surahs.Any (e => e.SurahId == id);
         }
     }
 }

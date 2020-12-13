@@ -13,9 +13,9 @@ namespace api.Controllers {
     [Route ("api/[controller]")]
     [ApiController]
     public class AyahController : ControllerBase {
-        private readonly Context _context;
+        private readonly KoranensBudskapContext _context;
 
-        public AyahController (Context context) {
+        public AyahController (KoranensBudskapContext context) {
             _context = context;
             Console.Write ("put");
         }
@@ -23,15 +23,15 @@ namespace api.Controllers {
         // GET: api/Ayah
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ayah>>> GetAyah () {
-            return await _context.Ayah.ToListAsync ();
+            return await _context.Ayahs.ToListAsync ();
         }
 
         // GET: api/Ayah/5
         [HttpGet ("{id}")]
         public async Task<ActionResult<Ayah>> GetAyah (int id) {
-            var ayah = await _context.Ayah
+            var ayah = await _context.Ayahs
                 .Where (i => i.AyahId.Equals (id))
-                .Include (t => t.Tafsir)
+                .Include (t => t.Tafsirs)
                 .FirstAsync ();
 
             if (ayah == null) {
@@ -71,7 +71,7 @@ namespace api.Controllers {
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Ayah>> PostAyah (Ayah ayah) {
-            _context.Ayah.Add (ayah);
+            _context.Ayahs.Add (ayah);
             await _context.SaveChangesAsync ();
 
             return CreatedAtAction ("GetAyah", new { id = ayah.AyahId }, ayah);
@@ -80,19 +80,19 @@ namespace api.Controllers {
         // DELETE: api/Ayah/5
         [HttpDelete ("{id}")]
         public async Task<IActionResult> DeleteAyah (int id) {
-            var ayah = await _context.Ayah.FindAsync (id);
+            var ayah = await _context.Ayahs.FindAsync (id);
             if (ayah == null) {
                 return NotFound ();
             }
 
-            _context.Ayah.Remove (ayah);
+            _context.Ayahs.Remove (ayah);
             await _context.SaveChangesAsync ();
 
             return NoContent ();
         }
 
         private bool AyahExists (int id) {
-            return _context.Ayah.Any (e => e.AyahId == id);
+            return _context.Ayahs.Any (e => e.AyahId == id);
         }
     }
 }

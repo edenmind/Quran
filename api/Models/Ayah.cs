@@ -1,14 +1,23 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace api.Models {
-    public class Ayah {
-        public int AyahId { get; set; }
-        public string Arabic { get; set; }
-        public string Swedish { get; set; }
+    public partial class Ayah {
+        public Ayah () {
+            Tafsirs = new HashSet<Tafsir> ();
+        }
 
-        public List<Tafsir> Tafsir { get; set; }
-        public int SurahId { get; set; }
+        public int? AyahNumber { get; set; }
+        public int? SurahId { get; set; }
+        public string Swedish { get; set; }
+        public int? Sajdah { get; set; }
+        public string Arabic { get; set; }
+        public int AyahId { get; set; }
+
+        public virtual Surah Surah { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<Tafsir> Tafsirs { get; set; }
     }
 }

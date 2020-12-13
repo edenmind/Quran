@@ -19,7 +19,7 @@
       },
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_CONNECTION_STRING": "Server=localhost;Database=quran;User Id=sa;Password=unsecure!12345;",
+        "ASPNETCORE_CONNECTION_STRING": "Server=localhost;Database=KoranensBudskap;User Id=sa;Password=unsecure.12345;",
         "ASPNETCORE_ORIGINS": "http://localhost:4200"
       },
       "sourceFileMap": {
