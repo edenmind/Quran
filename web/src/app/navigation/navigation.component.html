@@ -2,11 +2,10 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Kapitel</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="/">Start</a>
-      <a mat-list-item href="/surah/1">al-Fatiha</a>
-      <a mat-list-item href="/surah/2">al-Baqara</a>
-      <a mat-list-item href="/surah/3">Ali 'Imran</a>
+    <mat-nav-list *ngFor="let surah of surahs">
+
+      <a mat-list-item href="/surah/{{surah.surahId}}">{{surah.name}}</a>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

@@ -20,7 +20,7 @@ export class TafsirComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public removeTafsir(tafsirId: string) {
+  public removeTafsir(tafsirId: number) {
     this.tafsirService.removeTafsir(tafsirId);
     this.openSnackBar('The tafsir was removed!', 'MashaAllah');
   }

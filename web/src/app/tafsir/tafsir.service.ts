@@ -14,7 +14,9 @@ export class TafsirService {
   addTafsir(tafsir: Tafsir) {
     return this.http.post<Tafsir>(this.tafsirUrl, tafsir).subscribe();
   }
-  removeTafsir(tafsirId: string) {
-    this.http.delete<Tafsir>(this.tafsirUrl + '/' + tafsirId).subscribe();
+  removeTafsir(tafsirId: number) {
+    this.http
+      .delete<Tafsir>(this.tafsirUrl + '/' + tafsirId.toString())
+      .subscribe();
   }
 }
