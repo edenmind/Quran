@@ -14,12 +14,16 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Koranens Budskap</span>
+
+      <a href="/">
+
+        <span>Koranens Budskap</span>
+      </a>
 
       <span class="spacer"></span>
 
       <button mat-icon-button>
-        <a routerLink="/contact" class="title">
+        <a routerLink="/about" class="title">
           <mat-icon class="icon">contact_support</mat-icon>
         </a>
       </button>

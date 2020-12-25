@@ -26,6 +26,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AddTafsirComponent } from './tafsir/add-tafsir/add-tafsir.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AddTafsirComponent } from './tafsir/add-tafsir/add-tafsir.component';
     HomeComponent,
     AyahEditComponent,
     AddTafsirComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
