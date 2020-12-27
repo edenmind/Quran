@@ -1,5 +1,4 @@
 .DS_Store
-web/src/environments/environment.ts
 api/Properties/launchSettings.json
 api/Properties/launchSettings.json
 *.cache
