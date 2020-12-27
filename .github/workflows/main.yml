@@ -57,6 +57,7 @@ jobs:
           secret-name: api-q-credentials
           arguments: |
             --from-literal=ASPNETCORE_CONNECTION_STRING="${{ secrets.ASPNETCORE_CONNECTION_STRING }}"
+            --from-literal=ASPNETCORE_ORIGINS=${{ secrets.ASPNETCORE_ORIGINS }}
 
       - name: Replace SHA tag for containers
         uses: cschleiden/replace-tokens@v1
