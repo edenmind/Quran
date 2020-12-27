@@ -30,6 +30,11 @@ spec:
                 secretKeyRef:
                   name: api-q-credentials
                   key: ASPNETCORE_CONNECTION_STRING
+            - name: ASPNETCORE_ORIGINS
+              valueFrom:
+                secretKeyRef:
+                  name: api-q-credentials
+                  key: ASPNETCORE_ORIGINS
           imagePullPolicy: Always
           ports:
             - containerPort: 80
