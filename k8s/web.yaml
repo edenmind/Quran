@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-q
+  labels:
+    app: frontend-q
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend-q
+  template:
+    metadata:
+      labels:
+        app: frontend-q
+    spec:
+      containers:
+        - name: frontend-q
+          image: #{FRONTEND_TAG}#
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 50Mi
+              cpu: 100m
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 10
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-q
+  labels:
+    app: frontend-q
+spec:
+  type: NodePort
+  ports:
+    - port: 8100
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: frontend-q
+---
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: frontend-q
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: kb-beta-frontend.openarabic.io
+      http:
+        paths:
+          - path: /(.*)
+            backend:
+              serviceName: frontend-q
+              servicePort: 8100
