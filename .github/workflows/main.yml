@@ -54,7 +54,7 @@ jobs:
         uses: Azure/k8s-create-secret@v1.1
         with:
           secret-type: generic
-          secret-name: api-credentials
+          secret-name: api-q-credentials
           arguments: |
             --from-literal=ASPNETCORE_CONNECTION_STRING="${{ secrets.ASPNETCORE_CONNECTION_STRING }}"
 
