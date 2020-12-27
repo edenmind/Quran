@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Koranens Budskap</mat-toolbar>
+    <mat-toolbar>Kapitel</mat-toolbar>
 
 
 
@@ -14,20 +14,16 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
+
+
     <mat-toolbar color="primary">
+
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
 
-
-
-      <form class="example-form" style="font-size: medium;">
-        <mat-form-field class="example-full-width">
-          <!-- <mat-label>Sök i Koranen...</mat-label> -->
-          <input matInput value="" placeholder="Sök...">
-        </mat-form-field>
-      </form>
+      <span> <a routerLink="/" class="title" matRipple>Koranens Budskap</a> </span>
 
       <span class="spacer"></span>
 
