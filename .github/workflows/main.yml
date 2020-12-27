@@ -5,7 +5,7 @@ env:
   CLUSTER_NAME: edenmind-aks
   CLUSTER_RESOURCE_GROUP: edenmind-aks-resources
 
-on: 
+on:
   push:
     branches: [main]
 jobs:
@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v2.0.0
         with:
           file: ./api/Dockerfile
-          tags: therealedenmind/q-api:${{ github.sha }}
+          tags: therealedenmind/api-q:${{ github.sha }}
           context: ./api
           push: true
 
@@ -39,7 +39,7 @@ jobs:
         uses: docker/build-push-action@v2.0.0
         with:
           file: ./web/Dockerfile
-          tags: therealedenmind/q-frontend:${{ github.sha }}
+          tags: therealedenmind/web-q:${{ github.sha }}
           context: ./web
           push: true
 
@@ -58,14 +58,13 @@ jobs:
           arguments: |
             --from-literal=ASPNETCORE_CONNECTION_STRING="${{ secrets.ASPNETCORE_CONNECTION_STRING }}"
 
-
       - name: Replace SHA tag for containers
         uses: cschleiden/replace-tokens@v1
         with:
           files: '["./k8s/*.yaml"]'
         env:
-          API_TAG: therealedenmind/q-api:${{ github.sha }}
-          FRONTEND_TAG: therealedenmind/q-frontend:${{ github.sha }}
+          API_TAG: therealedenmind/api-q:${{ github.sha }}
+          FRONTEND_TAG: therealedenmind/web-q:${{ github.sha }}
 
       - name: Deploy API, Frontend and Database to k8s
         uses: Azure/k8s-deploy@v1
