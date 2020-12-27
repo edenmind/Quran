@@ -66,7 +66,7 @@ jobs:
           API_TAG: therealedenmind/api-q:${{ github.sha }}
           FRONTEND_TAG: therealedenmind/web-q:${{ github.sha }}
 
-      - name: Deploy API, Frontend and Database to k8s
+      - name: Deploy API and Web to k8s
         uses: Azure/k8s-deploy@v1
         with:
           manifests: |
