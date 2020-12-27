@@ -15,9 +15,9 @@ namespace api.Models {
         public string Arabic { get; set; }
         public int AyahId { get; set; }
 
+        [JsonIgnore]
         public virtual Surah Surah { get; set; }
 
-        [JsonIgnore]
         public virtual ICollection<Tafsir> Tafsirs { get; set; }
     }
 }

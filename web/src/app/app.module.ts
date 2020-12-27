@@ -27,6 +27,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AddTafsirComponent } from './tafsir/add-tafsir/add-tafsir.component';
 import { AboutComponent } from './about/about.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { AboutComponent } from './about/about.component';
   ],
   imports: [
     BrowserModule,
+    MatExpansionModule,
+    MatSlideToggleModule,
+    MatChipsModule,
     MatSnackBarModule,
     MatInputModule,
     MatTabsModule,

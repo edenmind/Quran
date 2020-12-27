@@ -4,6 +4,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { SurahService } from '../surah/surah.service';
 import { Surah } from '../models/surah';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-navigation',
@@ -21,6 +22,10 @@ export class NavigationComponent implements OnInit {
   surahs: Surah[] = [];
 
   subscription: Subscription = new Subscription();
+
+  color: ThemePalette = 'accent';
+  checkedAR = true;
+  checkedSV = true;
 
   constructor(
     private breakpointObserver: BreakpointObserver,

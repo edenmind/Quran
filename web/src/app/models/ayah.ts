@@ -4,6 +4,7 @@ export interface Ayah {
   ayahId: number;
   arabic: string;
   swedish: string;
-  tafsir: Tafsir[];
+  tafsirs: Tafsir[];
   surahId: number;
+  ayahNumber: number;
 }

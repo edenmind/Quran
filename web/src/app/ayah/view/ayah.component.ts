@@ -31,7 +31,7 @@ export class AyahComponent implements OnInit {
   public parseReferences(textToParse: string): SafeHtml {
     var toReplaceWith =
       '<span style="font-size: 75%; vertical-align: super; cursor: help" title="' +
-      this.ayah.tafsir[1].text +
+      this.ayah.tafsirs[1].text +
       '">1</span>';
     var parsed = textToParse.replace('1', toReplaceWith);
 

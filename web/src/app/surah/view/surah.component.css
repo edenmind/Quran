@@ -3,6 +3,14 @@
   margin-bottom: 25px;
   margin-left: 5px;
   margin-right: 5px;
+  max-width: 1000px;
+  text-align: center;
+
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .center {
@@ -12,4 +20,40 @@
 
 .title {
   font-weight: 500;
+  font-size: xx-large;
+}
+
+.arabic {
+  direction: ltr;
+  text-align: right;
+  font-size: xx-large;
+  padding: 10px;
+  padding-bottom: 50px;
+  line-height: 200%;
+}
+
+.translation {
+  direction: ltr;
+  text-align: left;
+  font-size: large;
+  padding: 10px;
+  line-height: 150%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+@font-face {
+  font-family: "me_quran";
+  src: url("/assets/fonts/me_quran.eot");
+  src: local("?"), url("/assets/fonts/me_quran.woff") format("woff"),
+    url("/assets/fonts/me_quran.ttf") format("truetype"),
+    url("/assets/fonts/me_quran.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.no-underline {
+  text-decoration: none;
 }

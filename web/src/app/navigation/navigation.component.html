@@ -1,10 +1,15 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Kapitel</mat-toolbar>
+    <mat-toolbar>Koranens Budskap</mat-toolbar>
+
+
+
     <mat-nav-list *ngFor="let surah of surahs">
 
-      <a mat-list-item href="/surah/{{surah.surahId}}">{{surah.name}}</a>
+      <a mat-list-item routerLink="/surah/{{surah.surahId}}" [routerLinkActive]="['is-active']">{{surah.surahId}}.
+        {{surah.name}}</a>
+
 
     </mat-nav-list>
   </mat-sidenav>
@@ -15,18 +20,30 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
 
-      <a href="/">
 
-        <span>Koranens Budskap</span>
-      </a>
+
+      <form class="example-form" style="font-size: medium;">
+        <mat-form-field class="example-full-width">
+          <!-- <mat-label>Sök i Koranen...</mat-label> -->
+          <input matInput value="" placeholder="Sök...">
+        </mat-form-field>
+      </form>
 
       <span class="spacer"></span>
 
-      <button mat-icon-button>
+      <mat-slide-toggle class="toggle-margin" [color]="color" [checked]="checkedAR">
+        AR
+      </mat-slide-toggle>
+
+      <mat-slide-toggle class="toggle-margin" [color]="color" [checked]="checkedSV">
+        SV
+      </mat-slide-toggle>
+
+      <!-- <button mat-icon-button>
         <a routerLink="/about" class="title">
           <mat-icon class="icon">contact_support</mat-icon>
         </a>
-      </button>
+      </button> -->
 
     </mat-toolbar>
     <router-outlet></router-outlet>

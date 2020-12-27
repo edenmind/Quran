@@ -3,7 +3,7 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 350px;
 }
 
 .sidenav .mat-toolbar {
@@ -24,4 +24,29 @@
   vertical-align: middle;
   margin-bottom: 5px;
   color: whitesmoke;
+}
+
+.white-link {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.is-active {
+  background: rgba(156, 39, 176, 0.15);
+  color: #d176e1;
+}
+
+.toggle-margin {
+  margin: 10px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 90%;
+  padding-left: 15px;
+}
+
+.example-full-width {
+  width: 100%;
 }

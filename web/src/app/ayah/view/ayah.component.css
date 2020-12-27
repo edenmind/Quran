@@ -6,3 +6,7 @@
 .onMouseOver {
   font-size: large;
 }
+
+.no-underline {
+  text-decoration: none;
+}

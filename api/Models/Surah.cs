@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
 
 namespace api.Models {
     public partial class Surah {
@@ -14,7 +12,6 @@ namespace api.Models {
         public int? Count { get; set; }
         public int? Period { get; set; }
 
-        [JsonIgnore]
         public virtual ICollection<Ayah> Ayahs { get; set; }
     }
 }
