@@ -1,16 +1,18 @@
+<br>
+<p>A new tafsir is not yet added to list automatically - please refresh the page to load it.</p>
+
 <div *ngFor="let tafsir of tafsirs" class="tafsir">
 
     <mat-card class="example-card">
-        <mat-card-header>
-            <mat-card-title>{{tafsir.tafsirId}}</mat-card-title>
-        </mat-card-header>
         <mat-card-content>
             <p>
-                {{tafsir.text}}
-            </p>
+                <strong>Id: {{tafsir.tafsirId}}</strong>
+            <p> {{tafsir.text}}</p>
         </mat-card-content>
         <mat-card-actions>
             <button mat-button (click)="removeTafsir(tafsir.tafsirId)">DELETE</button>
+            <button mat-button routerLink="/tafsir/edit/{{tafsir.tafsirId}}">EDIT</button>
         </mat-card-actions>
+
     </mat-card>
 </div>

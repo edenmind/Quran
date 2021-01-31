@@ -13,12 +13,15 @@ export class TafsirComponent implements OnInit {
   @Input()
   tafsirs!: Tafsir[];
   constructor(
-    private actRoute: ActivatedRoute,
     private tafsirService: TafsirService,
     private _snackBar: MatSnackBar
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  ngUpdate(): void {
+
+  }
 
   public removeTafsir(tafsirId: number) {
     this.tafsirService.removeTafsir(tafsirId);

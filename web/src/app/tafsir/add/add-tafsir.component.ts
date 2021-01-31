@@ -14,17 +14,17 @@ export class AddTafsirComponent implements OnInit {
   @Input()
   ayahId!: number;
   tafsir: Tafsir = {
-    ayahId: 0,
-    tafsirId: 0,
+    ayahId: undefined,
+    tafsirId: undefined,
     text: '',
   };
 
   constructor(
     private tafsirService: TafsirService,
     private _snackBar: MatSnackBar
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   addTafsir() {
     this.tafsir.ayahId = this.ayahId;

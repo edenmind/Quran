@@ -1,0 +1,16 @@
+<form>
+    <mat-card class="example-card">
+        <mat-card-content>
+
+            <mat-form-field appearance="fill" class="textarea">
+                <mat-label>Id: {{tafsir.tafsirId}}</mat-label>
+                <textarea matInput rows="15" cols="300" [(ngModel)]="tafsir.text"
+                    name="swedish">{{tafsir.text}}</textarea>
+            </mat-form-field>
+
+            <mat-card-actions>
+                <button mat-button (click)="updateTafsir()">UPDATE</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+</form>

@@ -5,6 +5,7 @@ import { AyahEditComponent } from './ayah/edit/ayah-edit.component';
 import { AyahComponent } from './ayah/view/ayah.component';
 import { HomeComponent } from './home/home.component';
 import { SurahComponent } from './surah/view/surah.component';
+import { EditTafsirComponent } from './tafsir/edit/edit-tafsir.component';
 import { TafsirComponent } from './tafsir/view/tafsir.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'ayah/edit/:ayahId', component: AyahEditComponent },
   { path: 'ayah/:ayahId', component: AyahComponent },
   { path: 'tafsir/:tafsirId', component: TafsirComponent },
+  { path: 'tafsir/edit/:tafsirId', component: EditTafsirComponent },
   { path: '', component: HomeComponent },
 ];
 
@@ -24,4 +26,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

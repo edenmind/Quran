@@ -1,5 +1,7 @@
 <div class="example-container" *ngIf="ayah">
 
+    <h2>{{ayah.surahId}}:{{ayah.ayahNumber}}</h2>
+
     <mat-tab-group>
         <mat-tab label="Edit Ayah">
             <form>
@@ -21,7 +23,8 @@
             <app-add-tafsir [ayahId]="ayah.ayahId"></app-add-tafsir>
         </mat-tab>
 
-        <mat-tab label="View Tafsir">
+        <mat-tab label="View Tafsirs" matBadge="8">
+
             <app-tafsir [tafsirs]="ayah.tafsirs"></app-tafsir>
         </mat-tab>
     </mat-tab-group>

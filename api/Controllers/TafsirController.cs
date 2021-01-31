@@ -64,6 +64,8 @@ namespace api.Controllers {
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Tafsir>> PostTafsir (Tafsir tafsir) {
+            var total = _context.Tafsirs.ToListAsync ().Result;
+            tafsir.TafsirId = total.Count + 1;
             _context.Tafsirs.Add (tafsir);
             await _context.SaveChangesAsync ();
 

@@ -25,11 +25,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
-import { AddTafsirComponent } from './tafsir/add-tafsir/add-tafsir.component';
+import { AddTafsirComponent } from './tafsir/add/add-tafsir.component';
 import { AboutComponent } from './about/about.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { EditTafsirComponent } from './tafsir/edit/edit-tafsir.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     AyahEditComponent,
     AddTafsirComponent,
     AboutComponent,
+    EditTafsirComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,4 +72,4 @@ import { MatExpansionModule } from '@angular/material/expansion';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
