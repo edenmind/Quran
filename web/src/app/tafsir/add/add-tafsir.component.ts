@@ -14,8 +14,8 @@ export class AddTafsirComponent implements OnInit {
   @Input()
   ayahId!: number;
   tafsir: Tafsir = {
-    ayahId: undefined,
-    tafsirId: undefined,
+    ayahId: 0,
+    tafsirId: 0,
     text: '',
   };
 
