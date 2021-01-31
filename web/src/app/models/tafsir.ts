@@ -1,5 +1,5 @@
 export interface Tafsir {
-  tafsirId?: number;
+  tafsirId: number;
   text: string;
-  ayahId?: number;
+  ayahId: number;
 }
