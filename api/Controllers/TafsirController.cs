@@ -64,8 +64,16 @@ namespace api.Controllers {
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Tafsir>> PostTafsir (Tafsir tafsir) {
-            var total = _context.Tafsirs.ToListAsync ().Result;
-            tafsir.TafsirId = total.Count + 1;
+            var tafsirs = _context.Tafsirs.ToListAsync ().Result;
+
+            var highest = 0;
+            foreach (var tafsirToCheck in tafsirs) {
+                if (tafsirToCheck.TafsirId > highest) {
+                    highest = tafsirToCheck.TafsirId;
+                }
+            }
+
+            tafsir.TafsirId = highest + 1;
             _context.Tafsirs.Add (tafsir);
             await _context.SaveChangesAsync ();
 

@@ -1,9 +1,20 @@
 <form>
     <div>
+
         <mat-form-field appearance="fill" class="tafsir">
-            <mat-label>Add Tafsir</mat-label>
+            <mat-label>Number</mat-label>
+            <textarea matInput rows="1" cols="100" name="number"></textarea>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="tafsir">
+            <mat-label>Tafsir text</mat-label>
             <textarea matInput rows="15" cols="100" [(ngModel)]="tafsir.text" name="text">{{tafsir.text}}</textarea>
         </mat-form-field>
+
+
+
     </div>
 </form>
 <div>

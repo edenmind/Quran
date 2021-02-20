@@ -1,9 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Ayah } from 'src/app/models/ayah';
 import { Tafsir } from 'src/app/models/tafsir';
 import { TafsirService } from '../tafsir.service';
 import { TafsirComponent } from '../view/tafsir.component';
+
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-tafsir',
@@ -21,7 +24,9 @@ export class AddTafsirComponent implements OnInit {
 
   constructor(
     private tafsirService: TafsirService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private location: Location
+
   ) { }
 
   ngOnInit(): void { }
@@ -29,6 +34,7 @@ export class AddTafsirComponent implements OnInit {
   addTafsir() {
     this.tafsir.ayahId = this.ayahId;
     this.tafsirService.addTafsir(this.tafsir);
+    this.location.back();
     this.openSnackBar('The tafsir was updated!', 'MashaAllah');
   }
 

@@ -19,6 +19,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { AyahEditComponent } from './ayah/edit/ayah-edit.component';
 import { MatFormFieldModule } from '@angular/material/form-field';

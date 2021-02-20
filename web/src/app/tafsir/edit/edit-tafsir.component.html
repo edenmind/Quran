@@ -2,6 +2,13 @@
     <mat-card class="example-card">
         <mat-card-content>
 
+            <mat-form-field appearance="fill" class="tafsir">
+                <mat-label>Number</mat-label>
+                <textarea matInput rows="1" cols="100" name="number"></textarea>
+            </mat-form-field>
+
+            <br>
+
             <mat-form-field appearance="fill" class="textarea">
                 <mat-label>Id: {{tafsir.tafsirId}}</mat-label>
                 <textarea matInput rows="15" cols="300" [(ngModel)]="tafsir.text"
