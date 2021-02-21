@@ -7,6 +7,8 @@
 
         <div *ngFor="let ayah of surah.ayahs">
             <mat-chip-list>
+                <div [attr.id]=ayah.ayahNumber></div>
+
                 <mat-chip color="accent" selected>{{surah.surahId}}:{{ayah.ayahNumber}}</mat-chip>
                 <span class="spacer"></span>
                 <button mat-icon-button [matMenuTriggerFor]="menu">

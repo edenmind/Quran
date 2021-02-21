@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as delay from 'delay';
 import { Subscription } from 'rxjs';
-import { delay } from 'rxjs/operators';
 import { Surah } from '../../models/surah';
 import { SurahService } from '../surah.service';
 
@@ -17,6 +18,8 @@ export class SurahComponent implements OnInit, OnDestroy {
   public loaded: boolean = false;
 
   constructor(
+
+    @Inject(DOCUMENT) private document: Document,
     private actRoute: ActivatedRoute,
     private surahService: SurahService,
     private route: Router
@@ -25,16 +28,30 @@ export class SurahComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
     this.surahId = this.actRoute.snapshot.params.surahId;
     this.subscription = this.surahService
       .getSurah(this.surahId)
-      .subscribe((surah) => ((this.surah = surah), (this.loaded = true)));
+      .subscribe((surah) => ((this.surah = surah), (this.loaded = true), console.log("loading...")));
+    this.scrollTo()
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
     console.log('destroys');
   }
+
+
+
+  async scrollTo() {
+
+    await delay(1000);
+    this.actRoute.fragment.subscribe((fragment: string) => {
+      var x = this.document.getElementById(fragment);
+      x?.scrollIntoView();
+    })
+  }
+
 
   placeForRelevation(place: number): string {
     var placeInText = '';

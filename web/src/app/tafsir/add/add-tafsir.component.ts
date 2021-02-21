@@ -1,12 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-import { Ayah } from 'src/app/models/ayah';
 import { Tafsir } from 'src/app/models/tafsir';
 import { TafsirService } from '../tafsir.service';
-import { TafsirComponent } from '../view/tafsir.component';
-
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { Ayah } from 'src/app/models/ayah';
 
 @Component({
   selector: 'app-add-tafsir',
@@ -15,7 +13,7 @@ import { Location } from '@angular/common';
 })
 export class AddTafsirComponent implements OnInit {
   @Input()
-  ayahId!: number;
+  ayah!: Ayah;
   tafsir: Tafsir = {
     ayahId: 0,
     tafsirId: 0,
@@ -25,16 +23,23 @@ export class AddTafsirComponent implements OnInit {
   constructor(
     private tafsirService: TafsirService,
     private _snackBar: MatSnackBar,
-    private location: Location
+    private location: Location,
+    private route: Router
 
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void { }
 
   addTafsir() {
-    this.tafsir.ayahId = this.ayahId;
+    this.tafsir.ayahId = this.ayah.ayahId;
     this.tafsirService.addTafsir(this.tafsir);
-    this.location.back();
+
+    var url = "/surah/" + this.ayah.surahId + "#" + this.ayah.ayahNumber;
+
+    this.location.replaceState(url);
+    window.location.reload();
+
     this.openSnackBar('The tafsir was updated!', 'MashaAllah');
   }
 
