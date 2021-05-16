@@ -50,19 +50,20 @@ spec:
   selector:
     app: frontend-q
 ---
-apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
   name: frontend-q
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-    kubernetes.io/ingress.class: nginx
+  namespace: quran
 spec:
-  rules:
-    - host: kb-beta-frontend.openarabic.io
-      http:
-        paths:
-          - path: /(.*)
-            backend:
-              serviceName: frontend-q
-              servicePort: 8100
+  routes:
+    - kind: Rule
+      match: Host(`kb-beta-frontend.openarabic.io`)
+      services:
+        - kind: Service
+          name: frontend-q
+          namespace: openarabic
+          passHostHeader: true
+          responseForwarding:
+            flushInterval: 1ms
+          port: 8100
