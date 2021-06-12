@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-q
+  name: frontend
+  namespace: koranensbudskap
   labels:
-    app: frontend-q
+    app: frontend
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: frontend-q
+      app: frontend
   template:
     metadata:
       labels:
-        app: frontend-q
+        app: frontend
     spec:
       containers:
-        - name: frontend-q
+        - name: frontend
           image: #{FRONTEND_TAG}#
           resources:
             limits:
@@ -38,9 +39,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-q
+  namespace: koranensbudskap
+  name: frontend
   labels:
-    app: frontend-q
+    app: frontend
 spec:
   type: NodePort
   ports:
@@ -48,13 +50,13 @@ spec:
       protocol: TCP
       targetPort: 80
   selector:
-    app: frontend-q
+    app: frontend
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: frontend-q
-  namespace: quran
+  namespace: koranensbudskap
 spec:
   routes:
     - kind: Rule
@@ -62,7 +64,7 @@ spec:
       services:
         - kind: Service
           name: frontend-q
-          namespace: openarabic
+          namespace: koranensbudskap
           passHostHeader: true
           responseForwarding:
             flushInterval: 1ms

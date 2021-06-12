@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-q
+  name: api
+  namespace: koranensbudskap
   labels:
-    app: api-q
+    app: api
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: api-q
+      app: api
   template:
     metadata:
       labels:
-        app: api-q
+        app: api
     spec:
       containers:
-        - name: api-q
+        - name: api
           image: #{API_TAG}#
           resources:
             limits:
@@ -28,12 +29,12 @@ spec:
             - name: ASPNETCORE_CONNECTION_STRING
               valueFrom:
                 secretKeyRef:
-                  name: api-q-credentials
+                  name: api-credentials
                   key: ASPNETCORE_CONNECTION_STRING
             - name: ASPNETCORE_ORIGINS
               valueFrom:
                 secretKeyRef:
-                  name: api-q-credentials
+                  name: api-credentials
                   key: ASPNETCORE_ORIGINS
           imagePullPolicy: Always
           ports:
@@ -43,9 +44,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: api-q
+  name: api
+  namespace: koranensbudskap
   labels:
-    app: api-q
+    app: api
 spec:
   type: NodePort
   ports:
@@ -53,21 +55,21 @@ spec:
       protocol: TCP
       targetPort: 80
   selector:
-    app: api-q
+    app: api
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: api-q
-  namespace: quran
+  name: api
+  namespace: koranensbudskap
 spec:
   routes:
     - kind: Rule
       match: Host(`kb-beta-api.openarabic.io`)
       services:
         - kind: Service
-          name: api-q
-          namespace: openarabic
+          name: api
+          namespace: koranensbudskap
           passHostHeader: true
           responseForwarding:
             flushInterval: 1ms
