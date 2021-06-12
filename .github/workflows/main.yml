@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Chek out source
+      - name: Check out source
         uses: actions/checkout@v2
 
       - name: Set up QEMU
@@ -54,7 +54,8 @@ jobs:
         uses: Azure/k8s-create-secret@v1.1
         with:
           secret-type: generic
-          secret-name: api-q-credentials
+          secret-name: api-credentials
+          namespace: openarabic
           arguments: |
             --from-literal=ASPNETCORE_CONNECTION_STRING="${{ secrets.ASPNETCORE_CONNECTION_STRING }}"
             --from-literal=ASPNETCORE_ORIGINS=${{ secrets.ASPNETCORE_ORIGINS }}
@@ -70,6 +71,7 @@ jobs:
       - name: Deploy API and Web to AKS
         uses: Azure/k8s-deploy@v1.4
         with:
+          namespace: koranensbudskap
           manifests: |
             ./k8s/web.yaml
             ./k8s/api.yaml
