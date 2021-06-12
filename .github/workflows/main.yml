@@ -55,7 +55,7 @@ jobs:
         with:
           secret-type: generic
           secret-name: api-credentials
-          namespace: openarabic
+          namespace: koranensbudskap
           arguments: |
             --from-literal=ASPNETCORE_CONNECTION_STRING="${{ secrets.ASPNETCORE_CONNECTION_STRING }}"
             --from-literal=ASPNETCORE_ORIGINS=${{ secrets.ASPNETCORE_ORIGINS }}
