@@ -2,8 +2,8 @@ name: Build, Push and Deploy
 
 env:
   REGISTRY_NAME: docker.io/therealedenmind
-  CLUSTER_NAME: edenmind-aks
-  CLUSTER_RESOURCE_GROUP: edenmind-aks-resources
+  CLUSTER_NAME: edenmind-k8s
+  CLUSTER_RESOURCE_GROUP: edenmind-rg
 
 on:
   push:
@@ -68,7 +68,7 @@ jobs:
           FRONTEND_TAG: therealedenmind/web-q:${{ github.sha }}
 
       - name: Deploy API and Web to AKS
-        uses: Azure/k8s-deploy@v1
+        uses: Azure/k8s-deploy@v1.4
         with:
           manifests: |
             ./k8s/web.yaml
